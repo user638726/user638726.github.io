@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.js"
+        integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(function () {
+            // 默认隐藏 iframe 和 container
+            $('#frame').hide();
+            $('#frame4').hide();
+            $('#container2').hide();
+
+            // 点击 "吉他社社史" 链接时触发
+            $('#table2').on('click', function (event) {
+                event.preventDefault();  // 阻止默认行为，防止页面跳转
+
+                // 显示 frame 并加载内容
+                $('#frame').show();
+                $('#frame4').hide();  // 隐藏其他 iframe
+                $('#container2').show(); // 显示 container2
+
+                // 确保 iframe 只加载一次
+                if (!$('#frame').attr('src')) {
+                    $('#frame').attr('src', './guitar_history.html');
+                }
+                $('.text3').remove();
+            });
+
+            // 点击 "吉他社教學內容" 链接时触发
+            $('#table3').on('click', function (event) {
+                event.preventDefault();  // 阻止默认行为，防止页面跳转
+
+                // 显示 frame4 并加载内容
+                $('#frame4').show();
+                $('#frame').hide();  // 隐藏其他 iframe
+                $('#container2').show(); // 显示 container2
+
+                // 确保 iframe 只加载一次
+                if (!$('#frame4').attr('src')) {
+                    $('#frame4').attr('src', './guitar_learning.html');
+                }
+                $('.text3').remove();
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <div class="text3">
+        <div class="content">
+            <div class="title">吉他社近期活動公告</div>
+            <table>
+                <tr>
+                    <td class="table1">
+                        <a href="./index.html" target="_top">回社團介紹首頁</a>
+                    </td>
+                    <td class="table1" id="table2">
+                        <a href="./guitar_history.html" target="">吉他社社史</a>
+                    </td>
+                    <td class="table1" id="table3">
+                        <a href="./guitar_learning.html" target=>吉他社教學內容</a>
+                    </td>
+                </tr>
+            </table>
+            <table>
+                <tr>
+                    <td><a href="#content3">九月十六日</a></td>
+                    <td><a href="#content4">十月三十一日</a></td>
+                    <td><a href="#content5">十二月二十五日</a></td>
+                    <td><a href="#content6">元月一日</a></td>
+                </tr>
+            </table>
+            <p class="content2">近期活動</p>
+
+            <p class="content3" id="content3">日期：九月十六日<br>
+                活動主題：社員大會<br>
+                地點：吉他社教室<br>
+                主持人：王小明<br>
+                活動內容:<a href="#" class="top1">TOP</a><br>
+                1.入社歡迎茶會<br>
+                2.指導老師致詞<br>
+                3.社長致詞<br>
+                4.社規介紹以及教學內容之簡介</p>
+
+            <p class="content4" id="content4">日期：十月三十一日<br>
+                活動主題：校內吉他表演<br>
+                地點：學校大禮堂<br>
+                領隊：王小明社長<br>
+                表演內容：以吉他演奏演唱民歌，曲目如下<a href="#" class="top2">TOP</a><br>
+                1.海浬來的沙<br>
+                2.微風往事<br>
+                3.七月涼山<br>
+                4.明天會更好(大合唱)</p>
+
+            <p class="content5" id="content5">日期：十二月二十五日<br>
+                活動主題：校內吉他比賽<br>
+                地點：學校大禮堂<br>
+                主辦單位：教務處<a href="#" class="top3">TOP</a><br>
+                吉他比賽規則：<br>
+                1.凡我玉山高中之學生<br>
+                2.參賽內容可為民歌演唱以及任何純吉他演奏方式如：古典吉他、爵士吉他演奏<br>
+                3.參賽者必須自備樂器</p>
+
+            <p class="content6" id="content6">日期：元月一日<br>
+                活動主題：全國吉他(高中組)演奏比賽<br>
+                地點：台北市社教館<br>
+                主辦單位：教育部<br>
+                比賽規則：<a href="#" class="top4">TOP</a><br>
+                1.由學校推舉優秀同學參予<br>
+                2.除推舉參加外，其餘有興趣參賽的同學，請自行報名參加<br>
+                3.參賽規則請參考比賽細則</p>
+            </p>
+        </div>
+    </div>
+    <div class="container2">
+        <iframe id="frame4" src="./guitar_learning.html" width="770px" height="610px" frameborder="0" scrolling="no"
+            name="frame4"></iframe>
+        <iframe id="frame" src="./guitar_history.html" width="770px" height="610px" scrolling="no" frameborder="0"
+            name="frame"></iframe>
+    </div>
+</body>
+
+</html>
