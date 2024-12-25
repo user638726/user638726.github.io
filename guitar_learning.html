@@ -8,46 +8,7 @@
     <link rel="stylesheet" href="style.css">
     <script src="https://code.jquery.com/jquery-3.7.1.js"
         integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
-    <script>
-        $(document).ready(function () {
-            // 默认隐藏 iframe 和 container
-            $('#frame').hide();
-            $('#frame3').hide();
-            $('#container2').hide();
 
-            // 点击 "吉他社社史" 链接时触发
-            $('#table2').on('click', function (event) {
-                event.preventDefault();  // 阻止默认行为，防止页面跳转
-
-                // 显示吉他社社史内容的iframe并加载内容
-                $('#frame').show();
-                $('#frame3').hide();  // 隐藏其他iframe
-                $('#container2').show(); // 显示 iframe 容器
-
-                // 确保 iframe 只加载一次
-                if (!$('#frame').attr('src')) {
-                    $('#frame').attr('src', './guitar_history.html');
-                }
-                $('.text3').remove();
-            });
-
-            // 点击 "吉他社近期活动公告" 链接时触发
-            $('#table3').on('click', function (event) {
-                event.preventDefault();  // 阻止默认行为，防止页面跳转
-
-                // 显示吉他社近期活动公告的iframe并加载内容
-                $('#frame3').show();
-                $('#frame').hide();  // 隐藏其他iframe
-                $('#container2').show(); // 显示 iframe 容器
-
-                // 确保 iframe 只加载一次
-                if (!$('#frame3').attr('src')) {
-                    $('#frame3').attr('src', './guitar_event.html');
-                }
-                $('.text3').remove();
-            });
-        });
-    </script>
 </head>
 
 <body>
@@ -60,10 +21,10 @@
                         <a href="./index.html" target="_top">回社團介紹首頁</a>
                     </td>
                     <td class="table1" id="table2">
-                        <a href="" target="">吉他社社史</a>
+                        <a href="javascript:loadpage('./guitar_history.html')" target="">吉他社社史</a>
                     </td>
                     <td class="table1" id="table3">
-                        <a href="" target="">吉他社近期活動公告</a>
+                        <a href="javascript:loadpage('./guitar_event.html')" target="">吉他社近期活動公告</a>
                     </td>
                 </tr>
             </table>
@@ -105,12 +66,46 @@
             </div>
         </div>
     </div>
-    <div class="container2">
-        <iframe id="frame3" src="./guitar_event.html" width="770px" height="610px" frameborder="0" scrolling="no"
-            name="frame3"></iframe>
-        <iframe id="frame" src="./guitar_history.html" width="770px" height="610px" scrolling="no" frameborder="0"
-            name="frame"></iframe>
-    </div>
+    <script>
+        $(document).ready(function () {
+            $('#table2').on('click', function (event) {
+                event.preventDefault();
+                $('.text3').empty();  // 清空原來的內容
+
+                $.ajax({
+                    type: "GET",
+                    url: "./guitar_history.html",
+                    dataType: "html",  // 保留這行，保證響應被當作 HTML 處理
+                    success: function (response) {
+                        console.log('成功獲取內容:', response);  // 在控制台中檢查
+                        $(".text3").html(response);  // 將內容插入容器
+                    },
+                    error: function (error) {
+                        console.log('載入失敗:', error);  // 如果發生錯誤，顯示錯誤信息
+                    }
+                });
+
+            });
+        });
+        $(document).ready(function () {
+            $('#table3').on('click', function (event) {
+                event.preventDefault();
+                $('.text3').empty();
+                $.ajax({
+                    type: "GET",
+                    url: "./guitar_event.html",
+                    dataType: "html",  // 保留這行，保證響應被當作 HTML 處理
+                    success: function (response) {
+                        console.log('成功獲取內容:', response);  // 在控制台中檢查
+                        $(".text3").html(response);  // 將內容插入容器
+                    },
+                    error: function (error) {
+                        console.log('載入失敗:', error);  // 如果發生錯誤，顯示錯誤信息
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 
 </html>
