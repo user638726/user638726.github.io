@@ -1,0 +1,166 @@
+* {
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.base {
+    width: 1024px;
+    height: 768px;
+
+    margin: 0 auto;
+}
+
+header {
+    width: 1024px;
+    height: 65px;
+
+}
+
+.container {
+    width: 1024px;
+    height: calc(768px - 65px - 20px);
+    background-color: lightyellow;
+    display: flex;
+}
+
+main {
+    width: 215px;
+    height: 100%;
+
+}
+
+.main-header {
+    width: 100%;
+
+    height: calc(100% - 25px);
+}
+
+.main-footer {
+
+    width: 100%;
+    height: 25px;
+}
+
+aside {
+    width: calc(1024px - 215px);
+    height: calc(768px - 65px - 20px);
+
+}
+
+.aside-header {
+    width: 100%;
+    height: 29px;
+
+}
+
+.aside-footer {
+    width: 100%;
+    height: calc(100% - 29px);
+
+}
+
+footer {
+    width: 1024px;
+    height: 20px;
+    background-color: greenyellow;
+}
+
+.main-header {
+    font-weight: 500;
+    font-family: DFKai-sb;
+    color: #ff00ff;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.introduce {
+    font-size: 24px;
+}
+
+.guitar {
+    background-image: url('./images/menu1.png');
+    /* 背景圖片設置為menu1.png */
+    background-position: center;
+    /* 背景圖片居中 */
+    color: #000000;
+    /* 文字顏色設為黑色 */
+    text-align: center;
+    /* 文字居中 */
+    display: flex;
+    /* 使用 Flexbox 讓文字居中 */
+    justify-content: center;
+    /* 水平居中 */
+    align-items: center;
+    /* 垂直居中 */
+    font-size: 16px;
+    /* 調整文字大小 */
+    font-weight: bold;
+    /* 文字加粗 */
+    position: relative;
+    /* 使用相對定位以便調整文字 */
+    z-index: 1;
+    background-size: cover;
+    /* 讓背景圖片覆蓋整個元素 */
+    width: 215px;
+    height: 35px;
+    margin-top: 10px;
+    text-decoration: none;
+    /* 去除超鏈接的下劃線 */
+    transition: background-image 0.3s ease;
+    /* 背景圖片的過渡效果 */
+}
+
+.guitar img {
+    display: none;
+    /* 隱藏內部的圖片 */
+}
+
+.guitar:hover {
+    background-image: url('./images/menu2.png');
+    /* 鼠標懸停時替換為新的背景圖片 */
+}
+
+#guitar2 {
+    text-decoration: underline;
+}
+
+#footer1 {
+    color: #000000;
+    font-family: DFKai-sb;
+    font-size: 16px;
+}
+
+footer {
+    font-family: DFKai-sb;
+    font-size: 16px;
+    text-align: center;
+    color: #000000;
+}
+
+.aside-footer {
+    width: 770px;
+    height: 600px;
+    margin: 0 auto;
+    text-align: center;
+    background-image: url(./images/0101.jpg);
+}
+
+.text {
+    font-weight: bold;
+    font-family: "DFKai-SB";
+    color: #0000FF;
+    font-style: italic;
+    font-size: 24px;
+}
+
+.text1 {
+    margin-top: 80px;
+    font-weight: bold;
+    font-family: "DFKai-SB";
+    color: #0000FF;
+    font-style: italic;
+    font-size: 24px;
+}

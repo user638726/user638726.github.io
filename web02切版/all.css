@@ -6,14 +6,14 @@
 .base {
     width: 1024px;
     height: 768px;
-    background-color: black;
+
     margin: 0 auto;
 }
 
 header {
     width: 1024px;
     height: 65px;
-    background-color: gold;
+
 }
 
 .container {
@@ -63,4 +63,10 @@ footer {
     width: 1024px;
     height: 20px;
     background-color: greenyellow;
+}
+
+.main-header {
+    font-weight: 500;
+    font-family: DFKai-sb;
+    color: #ff00ff;
 }
