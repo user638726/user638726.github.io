@@ -91,6 +91,7 @@
             $('#table3').on('click', function (event) {
                 event.preventDefault();
                 $('.text3').empty();
+                //清空text3以內的內容
                 $.ajax({
                     type: "GET",
                     url: "./guitar_event.html",
